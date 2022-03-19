@@ -25,18 +25,23 @@
 
         <div class="form-group companyGroup">
             <label for="company">Entreprise</label>
-            <input type="text" name="company" id="company" placeholder="Où est ce que je peux te trouver toi ?">
+            <input type="text" name="company" id="company" placeholder="Votre Entreprise">
         </div>
 
         <div class="form-group mailGroup">
             <label for="mail">Mail</label>
-            <input type="mail" name="mail" id="mail" placeholder="Comment que je peux te joindre ?">
+            <input type="mail" name="mail" id="mail" placeholder="Votre email">
+        </div>
+
+        <div class="form-group sectorGroup">
+            <label for="sector">Département</label>
+            <input type="number" name="sector" id="sector" placeholder="Departement">
         </div>
 
         <a id="form-btn">Télécharger le catalogue</a>
-        <button style="display: none;" type="submit">telecharger</button>
+        <button style="display: none;" type="submit">télecharger</button>
 
-        <style>a{text-decoration: none; color: white;}</style>
+        <style>a{text-decoration: none; color: white;} #link-catalogue{opacity: 0;}</style>
 
     </form>
     <a href="./catalogue2022TerradisWEB.pdf" download id="link-catalogue">catalogue</a>
