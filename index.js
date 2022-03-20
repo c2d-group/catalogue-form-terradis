@@ -47,7 +47,7 @@ app.get('/api/users', async (req, res) => {
 // Remove one of the download routes
 
 app.get('/api/users/updateExport', async (req, res) => {
-    const redirectionUrl = 'http://127.0.0.1:5500/front/html/tests.html';
+    const redirectionUrl = 'http://www.terradis.fr/';
     exportcsv.exportUsers()
     .then((response) => setTimeout(() => res.redirect(redirectionUrl), 1000))
     .catch((e) => {
@@ -79,7 +79,7 @@ app.post('/', async (req, res) => {
         const newNotionUser = await notion.addUser(req.body.firstname, req.body.lastname, req.body.company, req.body.mail, req.body.sector);
         const newSibContact = await sendInBlue.createContact(req);
 
-        res.status(status).redirect('http://127.0.0.1:5500/front/html/thank-you.html');
+        res.status(status).redirect('http://www.terradis.fr/');
 
         try{
             const exportUser = await exportcsv.exportUsers();
