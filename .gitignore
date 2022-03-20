@@ -1,6 +1,7 @@
-node_modules
+node_modules/
 css/*.css
 export-telechargements.csv
 test.js
 .env
-.DS_Store/
+.DS_Store
+package-lock.json
