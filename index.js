@@ -5,6 +5,7 @@ const req = require('express/lib/request');
 const User = require('./lib/classes/User');
 const exportcsv = require('./lib/exportcsv');
 const notion = require('./lib/notion');
+const sendInBlue = require('./lib/sendInBlue');
 
 
 const app = express();
@@ -76,6 +77,8 @@ app.post('/', async (req, res) => {
         const user = new User(req.body);
         const save = await user.create();
         const newNotionUser = await notion.addUser(req.body.firstname, req.body.lastname, req.body.company, req.body.mail, req.body.sector);
+        const newSibContact = await sendInBlue.createContact(req);
+
         res.status(status).redirect('http://127.0.0.1:5500/front/html/thank-you.html');
 
         try{

@@ -3,3 +3,4 @@ css/*.css
 export-telechargements.csv
 test.js
 .env
+.DS_Store/
