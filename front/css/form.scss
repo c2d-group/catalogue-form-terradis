@@ -1,7 +1,34 @@
+@import './variables';
 @import "./assets/minireset";
 @import "./assets/font";
 @import "mixins";
+@import './layouts/layouts';
+@import "./composants/composants";
+
+
 
 body{
   font-family: 'Aileron', sans-serif;
+  height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  background-image: url("./../imgs/background.jpg");
+  background-position: 0 75%;
+}
+
+// Layout
+
+.title{
+  position: relative;
+  top: 15px;
+  .logo{
+    max-width: 250px;
+    margin: 10px auto;
+
+  }
+  h1{
+    font-size: 32px;
+    color: $primary-color;
+    font-weight: 600;
+  }
 }
