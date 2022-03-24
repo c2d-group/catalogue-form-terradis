@@ -1,5 +1,6 @@
 @import './variables';
 @import "./assets/minireset";
+@import './color-classes';
 @import "./assets/font";
 @import "mixins";
 @import './layouts/layouts';
@@ -31,4 +32,18 @@ body{
     color: $primary-color;
     font-weight: 600;
   }
+}
+
+// validation 
+
+.validation-text{
+  color: red;
+  position: relative;
+  top: -10px;
+  opacity: 0%;
+}
+.validation-text.active{
+  transform: translateY(17px);
+  opacity: 100%;
+  transition: transform ease-in-out 0.4s, opacity ease-in 0.2s;
 }

@@ -1,0 +1,15 @@
+.btn{
+    display: inline;
+    border-radius: $radius-btn;
+    width: 100%;
+    height: $btn-height;
+    max-height: $btn-height;
+    max-width: $btn-width;
+    position: relative;
+    margin-left: auto;
+    .btn-text{
+      @include absoluteCenter();
+      font-size: 16px;
+      font-weight: 500;
+    }
+}
