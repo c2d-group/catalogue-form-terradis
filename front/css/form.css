@@ -165,7 +165,7 @@ td, th {
   max-height: 40px;
   max-width: 120px;
   position: relative;
-  margin-left: auto;
+  cursor: pointer;
 }
 
 .btn .btn-text {
@@ -208,6 +208,10 @@ body {
   font-size: 32px;
   color: #5A8F7D;
   font-weight: 600;
+}
+
+.form .btn {
+  margin-left: auto;
 }
 
 .validation-text {

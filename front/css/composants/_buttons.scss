@@ -6,7 +6,8 @@
     max-height: $btn-height;
     max-width: $btn-width;
     position: relative;
-    margin-left: auto;
+    cursor: pointer;
+
     .btn-text{
       @include absoluteCenter();
       font-size: 16px;
