@@ -11,6 +11,7 @@
 body{
   font-family: 'Aileron', sans-serif;
   height: 100vh;
+  max-height: 100vh;
   width: 100%;
   box-sizing: border-box;
   background-image: url("./../imgs/background.jpg");
@@ -26,6 +27,7 @@ body{
   @media screen AND (max-width: 768px) {
     background-image: url('./../imgs/background-sm-h.png');
   }
+
 }
 
 // Layout
@@ -45,6 +47,9 @@ body{
     @media screen AND (max-width: 768px) {
       max-width: 150px;
     } 
+    @media screen AND (max-width: 415px) {
+      max-width: 125px;
+    } 
   }
   h1{
     font-size: 32px;
@@ -58,6 +63,9 @@ body{
     }  
     @media screen AND (max-width: 768px) {
       font-size: 22px;
+    } 
+    @media screen AND (max-width: 415px) {
+      font-size: 20px;
     } 
   }
 }
@@ -73,12 +81,18 @@ body{
   position: relative;
   top: -10px;
   opacity: 0%;
+  @media screen AND (max-width: 415px) {
+      font-size: 14px;
+      font-weight: 400;
+  }
 }
 .validation-text.active{
   transform: translateY(17px);
   opacity: 100%;
   transition: transform ease-in-out 0.4s, opacity ease-in 0.2s;
   @media screen AND (max-width: 1030px) {
-    font-size: 14px;
+  }
+  @media screen AND (max-width: 415px) {
+    transform: translateY(15px);
   }
 }

@@ -131,9 +131,21 @@ td, th {
 
 @media screen and (max-width: 768px) {
   .form {
-    height: 95vh;
+    height: 90vh;
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 30px 6% 40px 6%;
+    padding: 10px 6%;
+    -webkit-transform: translate(-50%, -53%);
+            transform: translate(-50%, -53%);
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .form {
+    height: 85vh;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 6%;
+    -webkit-transform: translate(-50%, -53%);
+            transform: translate(-50%, -53%);
   }
 }
 
@@ -158,9 +170,18 @@ td, th {
 
 @media screen and (max-width: 768px) {
   .form-content {
-    -ms-grid-rows: 120px 120px 120px 50px;
-        grid-template-rows: 120px 120px 120px 50px;
+    -ms-grid-rows: 120px 60px 120px 50px;
+        grid-template-rows: 120px 60px 120px 50px;
     grid-row-gap: 40px;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .form-content {
+    -ms-grid-rows: 110px 50px 110px 40px;
+        grid-template-rows: 110px 50px 110px 40px;
+    grid-row-gap: 30px;
+    position: relative;
   }
 }
 
@@ -188,14 +209,38 @@ td, th {
   .inputs-group {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-    -ms-grid-rows: (55px)[2];
-        grid-template-rows: repeat(2, 55px);
-    grid-row-gap: 25px;
+    -ms-grid-rows: (50px)[2];
+        grid-template-rows: repeat(2, 50px);
+    grid-row-gap: 30px;
+  }
+  .inputs-group:nth-of-type(2) {
+    grid-row-gap: 30px;
+    -ms-grid-rows: 50px;
+        grid-template-rows: 50px;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
   }
   .inputs-group:nth-of-type(3) {
     grid-row-gap: 25px;
-    -ms-grid-rows: (55px)[2];
-        grid-template-rows: repeat(2, 55px);
+    -ms-grid-rows: (50px)[2];
+        grid-template-rows: repeat(2, 50px);
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .inputs-group {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: (45px)[2];
+        grid-template-rows: repeat(2, 45px);
+    grid-row-gap: 25px;
+  }
+  .inputs-group:nth-of-type(2) {
+    grid-row-gap: 35px;
+    -ms-grid-rows: 50px;
+        grid-template-rows: 50px;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -224,6 +269,12 @@ td, th {
   }
 }
 
+@media screen and (max-width: 415px) {
+  .form-group label {
+    font-size: 14px;
+  }
+}
+
 .form-group input {
   opacity: 0%;
   position: absolute;
@@ -240,6 +291,12 @@ td, th {
 @media screen and (max-width: 768px) {
   .form-input .input-text {
     font-size: 16px;
+  }
+}
+
+@media scren and (max-width: 415px) {
+  .form-input .input-text {
+    font-size: 14px;
   }
 }
 
@@ -287,6 +344,15 @@ td, th {
   }
 }
 
+@media screen and (max-width: 415px) {
+  .btn {
+    height: 40px;
+    max-height: 40px;
+    max-width: 90%;
+    font-size: 16px;
+  }
+}
+
 .btn .btn-text {
   position: absolute;
   left: 50%;
@@ -309,6 +375,12 @@ td, th {
   }
 }
 
+@media screen and (max-width: 415px) {
+  .btn .btn-text {
+    font-size: 16px;
+  }
+}
+
 .small-mentions {
   color: #A7CA64;
   font-size: 14px;
@@ -325,6 +397,7 @@ td, th {
 body {
   font-family: 'Aileron', sans-serif;
   height: 100vh;
+  max-height: 100vh;
   width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -380,6 +453,12 @@ body {
   }
 }
 
+@media screen and (max-width: 415px) {
+  .title .logo {
+    max-width: 125px;
+  }
+}
+
 .title h1 {
   font-size: 32px;
   color: #5A8F7D;
@@ -404,6 +483,12 @@ body {
   }
 }
 
+@media screen and (max-width: 415px) {
+  .title h1 {
+    font-size: 20px;
+  }
+}
+
 .form .btn {
   margin-left: auto;
 }
@@ -413,6 +498,13 @@ body {
   position: relative;
   top: -10px;
   opacity: 0%;
+}
+
+@media screen and (max-width: 415px) {
+  .validation-text {
+    font-size: 14px;
+    font-weight: 400;
+  }
 }
 
 .validation-text.active {
@@ -425,9 +517,10 @@ body {
   transition: transform ease-in-out 0.4s, opacity ease-in 0.2s, -webkit-transform ease-in-out 0.4s;
 }
 
-@media screen and (max-width: 1030px) {
+@media screen and (max-width: 415px) {
   .validation-text.active {
-    font-size: 14px;
+    -webkit-transform: translateY(15px);
+            transform: translateY(15px);
   }
 }
 /*# sourceMappingURL=form.css.map */

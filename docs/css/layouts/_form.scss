@@ -39,9 +39,16 @@
 
     }
     @media screen AND (max-width: 768px) {
-        height: 95vh;
+        height: 90vh;
         background-color: rgba($color: #FFF, $alpha: 0.8);
-        padding: 30px 6% 40px 6%;
+        padding: 10px 6%;
+        transform: translate(-50%, -53%);
+    }
+    @media screen AND (max-width: 415px) {
+        height: 85vh;
+        background-color: rgba($color: #FFF, $alpha: 0.8);
+        padding: 10px 6%;
+        transform: translate(-50%, -53%);
     }
 
 
@@ -59,8 +66,14 @@
         grid-row-gap: 45px;
     }
     @media screen AND (max-width: 768px) {
-        grid-template-rows: 120px 120px 120px 50px;
+        grid-template-rows: 120px 60px 120px 50px;
         grid-row-gap: 40px;
+    }
+    @media screen AND (max-width: 415px) {
+        grid-template-rows: 110px 50px 110px 40px;
+        grid-row-gap: 30px;
+        position: relative;
+
     }
     
   }

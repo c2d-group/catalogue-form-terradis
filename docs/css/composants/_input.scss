@@ -12,6 +12,9 @@
       @media screen AND (max-width: 768px) {
         font-size: 16px;
       }
+      @media screen AND (max-width: 415px) {
+        font-size: 14px;
+      }
     }
 
 
@@ -34,6 +37,9 @@
       left: 2px;
       @media screen AND (max-width: 768px) {
         font-size: 16px;
+      }
+      @media scren AND (max-width: 415px) {
+        font-size: 14px;
       }
     }
 
