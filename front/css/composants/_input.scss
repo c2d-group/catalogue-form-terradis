@@ -6,10 +6,14 @@
 
 
     label{
-      font-size: 16px;
+      font-size: 18px;
       transform: translateY(17px);
       position: relative;
+      @media screen AND (max-width: 768px) {
+        font-size: 16px;
+      }
     }
+
 
     input{
       opacity: 0%;
@@ -26,6 +30,11 @@
     .input-text{
       display: inline-block;
       height: 16px;
+      position: relative;
+      left: 2px;
+      @media screen AND (max-width: 768px) {
+        font-size: 16px;
+      }
     }
 
     .input-underline{
@@ -43,7 +52,7 @@
   // inputs generated on focus state
   .form-group.focus{
     label{
-      transform: translateY(-10px);
+      transform: translateY(-5px);
       transition: transform 0.4s ease-in-out;
       color: $secondary-color;
     }

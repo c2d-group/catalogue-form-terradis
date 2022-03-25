@@ -12,11 +12,11 @@ const sectorInput = document.querySelector('input[name="sector"]');
 const submitBtn = document.querySelector('#catalogue-form button[type="submit"]');
 const btn = document.querySelector('a[id="form-btn"]');
 const catalogue = document.querySelector('a[id="link-catalogue"]');
-const fill = document.querySelector('#fill');
+// const fill = document.querySelector('#fill');
 const form = document.querySelector('form[id="catalogue-form"]');
 
-// Remplissage rapide pour test
-fill.addEventListener('click', fillFormsInput);
+// // Remplissage rapide pour test
+// fill.addEventListener('click', fillFormsInput);
 
 // Validation du formulaire
 btn.addEventListener('click', validateForm);
@@ -91,7 +91,9 @@ for(let i = 0; i < inputs.length; i++){
     })
 }
 
-
+// Qand classe focus : inpustate = focused
+// quand remove focus & inputValue > 0 : keep focus 
+// Quand remove focus & inputValue = 0 : remove class focus
 formGroups.forEach((group) => {
     group.addEventListener('click', (e) => {
         group.classList.add('focus');
