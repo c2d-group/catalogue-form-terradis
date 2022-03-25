@@ -1,0 +1,24 @@
+.inputs-group{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 60px;
+    grid-column-gap: 10%;
+    @media screen AND (max-width: 1030px) {
+        // grid-template-rows: 45px;
+        &:nth-of-type(3){
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(2, 60px);
+            grid-row-gap: 15px;
+        }
+    }
+    @media screen AND (max-width: 768px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 55px);
+        grid-row-gap: 25px;
+        &:nth-of-type(3){
+            grid-row-gap: 25px;
+            grid-template-rows: repeat(2, 55px);
+
+        }
+    }
+}
