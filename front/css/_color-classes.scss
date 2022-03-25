@@ -1,8 +1,0 @@
-.accent{
-    background: $accent-color;
-    color: $btn-text;
-    &:hover{
-        background: darken($color: $accent-color, $amount: 3%);
-        transition: background 0.3s ease-in-out;
-    }
-}
