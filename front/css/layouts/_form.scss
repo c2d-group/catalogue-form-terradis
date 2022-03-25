@@ -10,6 +10,23 @@
     justify-content: space-between;
     align-items: center;
     padding: 25px 2.5%;
+
+    @media screen AND (max-width: 1650px) {
+        width: 55%;
+    }
+    @media screen AND (max-width: 1490px) {
+        width: 60%;
+    }
+    @media screen AND (max-width: 1360px) {
+        width: 65%;
+    }
+    @media screen AND (max-width: 1240px) {
+        width: 70%;
+    }
+    @media screen AND (max-width: 1120px) {
+        width: 75%;
+        padding: 30px 4%;
+    }
 }
 
 .form-content{

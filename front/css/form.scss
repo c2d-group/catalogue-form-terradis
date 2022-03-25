@@ -15,6 +15,10 @@ body{
   box-sizing: border-box;
   background-image: url("./../imgs/background.jpg");
   background-position: 0 75%;
+  background-size: cover;
+  @media screen AND (max-width: 1240px) {
+    background-image: url('./../imgs/background-md.png');
+  }
 }
 
 // Layout
@@ -25,12 +29,17 @@ body{
   .logo{
     max-width: 250px;
     margin: 10px auto;
-
+    @media screen AND (max-width: 1360px) {
+      max-width: 230px;
+  }   
   }
   h1{
     font-size: 32px;
     color: $primary-color;
     font-weight: 600;
+    @media screen AND (max-width: 1360px) {
+      font-size: 28px;
+    }   
   }
 }
 
