@@ -144,8 +144,8 @@ td, th {
     height: 85vh;
     background-color: rgba(255, 255, 255, 0.8);
     padding: 10px 6%;
-    -webkit-transform: translate(-50%, -53%);
-            transform: translate(-50%, -53%);
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
   }
 }
 
@@ -339,7 +339,7 @@ td, th {
     height: 50px;
     max-height: 50px;
     max-width: 90%;
-    margin: 20px auto 0px auto;
+    margin: 10px auto 0px auto;
     font-size: 18px;
   }
 }
@@ -391,6 +391,12 @@ td, th {
 @media screen and (max-width: 768px) {
   .small-mentions {
     font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .small-mentions {
+    font-size: 10px;
   }
 }
 
