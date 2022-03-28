@@ -141,7 +141,17 @@ td, th {
 
 @media screen and (max-width: 415px) {
   .form {
-    height: 85vh;
+    height: 750px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 6%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+}
+
+@media screen and (max-height: 750px) {
+  .form {
+    height: 600px;
     background-color: rgba(255, 255, 255, 0.8);
     padding: 10px 6%;
     -webkit-transform: translate(-50%, -50%);

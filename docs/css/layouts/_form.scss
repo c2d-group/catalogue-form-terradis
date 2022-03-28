@@ -45,11 +45,18 @@
         transform: translate(-50%, -53%);
     }
     @media screen AND (max-width: 415px) {
-        height: 85vh;
+        height: 750px;
         background-color: rgba($color: #FFF, $alpha: 0.8);
         padding: 10px 6%;
         transform: translate(-50%, -50%);
     }
+    @media screen AND (max-height: 750px) {
+        height: 600px;
+        background-color: rgba($color: #FFF, $alpha: 0.8);
+        padding: 10px 6%;
+        transform: translate(-50%, -50%);
+    }
+
 
 
 
