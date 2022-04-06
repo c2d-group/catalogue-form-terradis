@@ -1,6 +1,5 @@
 // TODO : Ne générer que les messages d'erreurs ou il y a une erreur lors de l'envoi.
 
-
 import Validation from './classes/Validation.js';
 const validation = new Validation();
 
@@ -8,6 +7,7 @@ const firstnameInput = document.querySelector('input[name="firstname"]');
 const lastnameInput = document.querySelector('input[name="lastname"]');
 const companyInput = document.querySelector('input[name="company"]');
 const mailInput = document.querySelector('input[name="mail"]');
+const phoneInput = document.querySelector('input[name="phone"]');
 const sectorInput = document.querySelector('input[name="sector"]');
 const submitBtn = document.querySelector('#catalogue-form button[type="submit"]');
 const btn = document.querySelector('a[id="form-btn"]');
@@ -48,6 +48,14 @@ function validateForm(){
     else {
         if(document.querySelector('.companyGroup .validation-text')) document.querySelector('.companyGroup .validation-text').remove();
      }
+     if(phoneInput.value.length === 0 || phoneInput.value.length < 10){
+        if(document.querySelector(`.phoneGroup .validation-text`)) document.querySelector(`phoneGroup .validation-text`).remove();
+        if(!document.querySelector('.phoneGroup .validation-text')) validation.formError(phoneInput, 'Merci de renseigner un numéro de téléphone valide');
+        err.push('Merci de renseigner un numéro de téléphone valide');
+    } 
+    else {
+        if(document.querySelector('.phoneGroup .validation-text')) document.querySelector('.phoneGroup .validation-text').remove();
+     }
     if(validation.validateEmail(mailInput.value) === null ){
         if(document.querySelector(`.mailGroup .validation-text`)) document.querySelector(`mailGroup .validation-text`).remove();
         if(!document.querySelector(`.mailGroup .validation-text`)) validation.formError(mailInput, 'Merci de renseigner une adresse mail valide');
@@ -68,7 +76,7 @@ function validateForm(){
         if(document.querySelector('.sectorGroup .validation-text')) document.querySelector('.sectorGroup .validation-text').remove();
      }
 
-
+     console.log(err);
     if(err.length === 0){
         const vspans = form.querySelectorAll('.validation-text');
         vspans.forEach(span => span.remove());
@@ -84,21 +92,43 @@ const inputsTexts = document.querySelectorAll('.form-input .input-text');
 const formGroups = document.querySelectorAll('.form-group');
 
 for(let i = 0; i < inputs.length; i++){
+    inputsTexts[i].innerText = inputs[i].value;
     inputs[i].addEventListener('input', (e) => {
         inputsTexts[i].innerText = inputs[i].value;
-        console.log(inputsTexts[i]);
-        console.log(inputsTexts[i].value);
-    })
+    });
 }
 
 // Qand classe focus : inpustate = focused
 // quand remove focus & inputValue > 0 : keep focus 
 // Quand remove focus & inputValue = 0 : remove class focus
-formGroups.forEach((group) => {
-    group.addEventListener('click', (e) => {
-        group.classList.add('focus');
-    })
-})
+const labels = document.querySelectorAll('form label');
+const trueInputs = document.querySelectorAll('input');
+for(let i = 0; i < inputs.length; i++){
+    formGroups[i].addEventListener('click', () => {
+        if(inputsTexts[i].innerText.length === 0) {
+            formGroups[i].classList.toggle('focus');
+            trueInputs[i].focus({preventScroll: false});
+        } else if(inputsTexts[i].innerText.length > 0 && formGroups[i].classList.contains('focus') === true) {
+            return
+        }
+
+    });
+    labels[i].addEventListener('click', () => {
+        if(inputsTexts[i].innerText.length === 0) {
+            formGroups[i].classList.toggle('focus');
+            trueInputs[i].focus({preventScroll: false});
+        } else if(inputsTexts[i].innerText.length > 0 && formGroups[i].classList.contains('focus') === true) {
+            return
+        }
+        console.log(trueInputs[i].hasAttribute('focus'));
+        if( trueInputs[i] === document.activeElement && formGroups[i].classList.contains('focus') === false ){
+            formGroups[i].classList.add('focus');
+        }
+
+    });
+
+}
+
 
 function fillFormsInput(){
     validation.fillInput(firstnameInput, 'Deryckx');

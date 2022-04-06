@@ -1,19 +1,16 @@
 const db = require('./lib/db');
 const express = require('express');
 const bodyParser = require('body-parser');
-const req = require('express/lib/request');
 const User = require('./lib/classes/User');
 const exportcsv = require('./lib/exportcsv');
 const notion = require('./lib/notion');
-const sendInBlue = require('./lib/sendInBlue');
+// const sendInBlue = require('./lib/sendInBlue');
 
 
 const app = express();
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
 
-    // authorized headers for preflight requests
-    // https://developer.mozilla.org/en-US/docs/Glossary/preflight_request
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     next();
 
@@ -32,33 +29,32 @@ app.use(function(req, res, next) {
 app.use(bodyParser.urlencoded({ extended: false }));
 let jsonParser = bodyParser.json();
 
-app.get('/api/users', async (req, res) => {
+// app.get('/api/users', async (req, res) => {
+//     try{
+//         const user = await User.getAll();
+//         res.send(user);
+//     }
+//     catch(e){
+//         res.status(500).send('une erreur interne est survenue, merci de réessayer plus tard');
+//         console.log(e.message);
+//     }
+// })
 
-    try{
-        const user = await User.getAll();
-        res.send(user);
-    }
-    catch(e){
-        res.status(500).send('une erreur interne est survenue, merci de réessayer plus tard');
-        console.log(e.message);
-    }
-})
+// // Remove one of the download routes
+//
+// app.get('/api/users/updateExport', async (req, res) => {
+//     const redirectionUrl = 'https://www.web-terradis.fr/produits-liens/';
+//     exportcsv.exportUsers()
+//     .then((response) => setTimeout(() => res.redirect(redirectionUrl), 1000))
+//     .catch((e) => {
+//         const message = `Une erreur est survenue lors de la mise à jour de la liste des utilisateurs -> ${e.message}`;
+//         res.status(500).send(message);
+//         console.log(message);
+//         setTimeout(() => res.redirect(redirectionUrl), 2500);
+//     });
+// })
 
-// Remove one of the download routes
-
-app.get('/api/users/updateExport', async (req, res) => {
-    const redirectionUrl = 'http://www.terradis.fr/';
-    exportcsv.exportUsers()
-    .then((response) => setTimeout(() => res.redirect(redirectionUrl), 1000))
-    .catch((e) => {
-        const message = `Une erreur est survenue lors de la mise à jour de la liste des utilisateurs -> ${e.message}`;
-        res.status(500).send(message);
-        console.log(message);
-        setTimeout(() => res.redirect(redirectionUrl), 2500);
-    });
-})
-
-app.post('/', async (req, res) => {
+app.post('/saveUser/', async (req, res) => {
 
     
     let status = 200;
@@ -76,10 +72,14 @@ app.post('/', async (req, res) => {
     else if(errors.length === 0) {
         const user = new User(req.body);
         const save = await user.create();
-        const newNotionUser = await notion.addUser(req.body.firstname, req.body.lastname, req.body.company, req.body.mail, req.body.sector);
-        const newSibContact = await sendInBlue.createContact(req);
+        const newNotionUser = await notion.addUser(user);
+        // const newSibContact = await sendInBlue.createContact(user);
 
-        res.status(status).redirect('http://www.terradis.fr/');
+        if(process.env.mode === "DEV"){
+            res.send(req.body)
+        } else {
+            res.status(status).redirect('http://www.web-terradis.fr/produits-liens');
+        }
 
         try{
             const exportUser = await exportcsv.exportUsers();
@@ -91,4 +91,4 @@ app.post('/', async (req, res) => {
 })
 
 const port = 3000;
-app.listen(port, () => console.log('listen port : ' + port));
+app.listen(3000, () => console.log('listen port : ' + 3000));

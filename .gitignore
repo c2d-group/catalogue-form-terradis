@@ -1,7 +1,12 @@
 node_modules/
-css/*.css
+# css/*.css
 export-telechargements.csv
 test.js
+# .env
+package-lock.json
+# node_modules
+build
+npm-debug.log
 .env
 .DS_Store
-package-lock.json
+.idea/
