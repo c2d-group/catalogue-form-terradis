@@ -8,7 +8,7 @@ const notion = require('./lib/notion');
 
 
 const app = express();
-app.use((req, res, next) => {
+    app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
 
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
@@ -20,16 +20,16 @@ app.use((req, res, next) => {
         res.send();
     });
 });
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "localhost");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "localhost");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+// });
 
 app.use(bodyParser.urlencoded({ extended: false }));
 let jsonParser = bodyParser.json();
 
-// app.get('/api/users', async (req, res) => {
+// app.get('/catalogue/users', async (req, res) => {
 //     try{
 //         const user = await User.getAll();
 //         res.send(user);
@@ -54,7 +54,7 @@ let jsonParser = bodyParser.json();
 //     });
 // })
 
-app.post('/saveUser/', async (req, res) => {
+app.post('/catalogue/saveUser/', async (req, res) => {
 
     
     let status = 200;
@@ -75,11 +75,7 @@ app.post('/saveUser/', async (req, res) => {
         const newNotionUser = await notion.addUser(user);
         // const newSibContact = await sendInBlue.createContact(user);
 
-        if(process.env.mode === "DEV"){
-            res.send(req.body)
-        } else {
-            res.status(status).redirect('http://www.web-terradis.fr/produits-liens');
-        }
+        res.status(status).redirect('http://www.web-terradis.fr/produits-liens');
 
         try{
             const exportUser = await exportcsv.exportUsers();
