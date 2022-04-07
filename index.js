@@ -54,7 +54,7 @@ let jsonParser = bodyParser.json();
 //     });
 // })
 
-app.post('/catalogue/saveUser/', async (req, res) => {
+app.post('/catalogue/saveuser/', async (req, res) => {
 
     
     let status = 200;
@@ -86,5 +86,5 @@ app.post('/catalogue/saveUser/', async (req, res) => {
 
 })
 
-const port = 3000;
-app.listen(3000, () => console.log('listen port : ' + 3000));
+const port = process.env.PORT || 5000;
+app.listen(port, () => console.log('listen port : ' + port));
