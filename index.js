@@ -20,11 +20,11 @@ const app = express();
         res.send();
     });
 });
-// app.use(function(req, res, next) {
-//     res.header("Access-Control-Allow-Origin", "localhost");
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//     next();
-// });
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "localhost");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 app.use(bodyParser.urlencoded({ extended: false }));
 let jsonParser = bodyParser.json();
@@ -59,10 +59,10 @@ app.post('/catalogue/saveuser/', async (req, res) => {
     
     let status = 200;
     let errors = [];
-    if(req.body.firstname.length < 2){ status = 400; errors.push({firstname: 'Merci de spécifier au moins 2 caractères'}) };
-    if(req.body.firstname.length === 0){ status = 400; errors.push({firstname: 'Merci de renseigner votre prénom'}) };
-
-    if(req.body.lastname.length === 0){ status = 400; errors.push({lastname: 'Merci de renseigner votre nom'}) };
+    // if(req.body.firstname.length < 2){ status = 400; errors.push({firstname: 'Merci de spécifier au moins 2 caractères'}) };
+    // if(req.body.firstname.length === 0){ status = 400; errors.push({firstname: 'Merci de renseigner votre prénom'}) };
+    //
+    // if(req.body.lastname.length === 0){ status = 400; errors.push({lastname: 'Merci de renseigner votre nom'}) };
 
 
     // Final Result 
@@ -74,14 +74,16 @@ app.post('/catalogue/saveuser/', async (req, res) => {
         const save = await user.create();
         const newNotionUser = await notion.addUser(user);
         // const newSibContact = await sendInBlue.createContact(user);
-
-        res.status(status).redirect('http://www.web-terradis.fr/produits-liens');
-
         try{
             const exportUser = await exportcsv.exportUsers();
             console.log('Mise à jour du fichier utilisateur effectuée.');
         }
         catch(e){ console.log(e.message); }
+
+        res.status(status).redirect('http://www.web-terradis.fr/produits-liens');
+
+    } else{
+        return
     };
 
 })

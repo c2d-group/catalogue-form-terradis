@@ -4,8 +4,10 @@
   "description": "module that gets users informations while downloading the catalogue file",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "16.13.2"
   },
   "author": "Clément Deryckx",
   "license": "ISC",
